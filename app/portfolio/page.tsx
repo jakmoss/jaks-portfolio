@@ -17,7 +17,7 @@
 
         <!-- Photo -->
         <div class="mb-12 flex justify-center">
-            <img src="/placeholder.svg?height=200width=200" alt="John Doe" class="rounded-full w-48 h-48 object-cover shadow-lg" />
+            <img src="/placeholder.svg" alt="John Doe" class="rounded-full w-48 h-48 object-cover shadow-lg" />
         </div>
 
         <!-- About Me -->
