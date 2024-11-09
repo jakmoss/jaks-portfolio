@@ -1,70 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="John Doe's Web Developer Portfolio">
-    <title>My Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">John Doe</h1>
-            <p class="text-xl text-gray-600">Web Developer</p>
-        </header>
-
-        <!-- Photo -->
-        <div class="mb-12 flex justify-center">
-            <img src="/placeholder.svg" alt="John Doe" class="rounded-full w-48 h-48 object-cover shadow-lg" />
-        </div>
-
-        <!-- About Me -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
-            <p class="text-gray-600">
-                I'm a passionate web developer with 5 years of experience in creating responsive and user-friendly websites. I love turning complex problems into simple, beautiful, and intuitive designs.
-            </p>
-        </section>
-
-        <!-- Skills -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Skills</h2>
-            <ul class="list-disc list-inside text-gray-600">
-                <li>HTML5 &amp; CSS3</li>
-                <li>JavaScript (ES6+)</li>
-                <li>React.js</li>
-                <li>Node.js</li>
-                <li>Tailwind CSS</li>
-                <li>Git &amp; GitHub</li>
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-gray-900">Jane Doe</h1>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><a href="#about" className="text-gray-600 hover:text-gray-900">About</a></li>
+              <li><a href="#projects" className="text-gray-600 hover:text-gray-900">Projects</a></li>
+              <li><a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a></li>
             </ul>
-        </section>
+          </nav>
+        </div>
+      </header>
 
-        <!-- Projects -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Project 1</h3>
-                    <p class="text-gray-600 mb-4">A brief description of Project 1 and its key features.</p>
-                    <a href="#" class="text-blue-500 hover:underline">View Project</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Project 2</h3>
-                    <p class="text-gray-600 mb-4">A brief description of Project 2 and its key features.</p>
-                    <a href="#" class="text-blue-500 hover:underline">View Project</a>
-                </div>
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        {/* About Section */}
+        <section id="about" className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">About Me</h2>
+          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div className="px-4 py-5 sm:px-6">
+              <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                I'm a passionate web developer with expertise in React, Node.js, and modern web technologies.
+                With 5 years of experience, I love creating responsive and user-friendly web applications.
+              </p>
             </div>
+            <div className="border-t border-gray-200">
+              <dl>
+                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">Skills</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    React, Next.js, Node.js, TypeScript, Tailwind CSS, GraphQL
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
         </section>
 
-        <!-- Contact -->
-        <section>
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
-            <p class="text-gray-600 mb-2">Email: john.doe@example.com</p>
-            <p class="text-gray-600 mb-2">LinkedIn: <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/johndoe</a></p>
-            <p class="text-gray-600">GitHub: <a href="#" class="text-blue-500 hover:underline">github.com/johndoe</a></p>
+        {/* Projects Section */}
+        <section id="projects" className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">My Projects</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "E-commerce Platform", description: "A full-stack e-commerce solution built with Next.js and Stripe" },
+              { title: "Task Management App", description: "A React-based task manager with drag-and-drop functionality" },
+              { title: "Weather Dashboard", description: "A weather app using React and OpenWeatherMap API" }
+            ].map((project, index) => (
+              <div key={index} className="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div className="px-4 py-5 sm:p-6">
+                  <h3 className="text-lg leading-6 font-medium text-gray-900">{project.title}</h3>
+                  <div className="mt-2 max-w-xl text-sm text-gray-500">
+                    <p>{project.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Me</h2>
+          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+            <div className="px-4 py-5 sm:p-6">
+              <form className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                  <input type="text" name="name" id="name" className="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                  <input type="email" name="email" id="email" className="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                  <textarea id="message" name="message" rows={3} className="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                </div>
+                <div>
+                  <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-500">© 2023 Jane Doe. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
-</body>
-</html>
+  )
+}
